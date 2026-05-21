@@ -40,7 +40,7 @@ const PROJECTS = [
     title: 'Responsive Portfolio Web Application',
     desc: 'Web Application for Pratik Verma — accessible from any web browser, responsive across every device.',
     tech: ['React', 'TypeScript', 'Vite'],
-    link: '#',
+    link: 'https://github.com/pratikverma12/Portfolio',
     img: 'https://placehold.co/600x380/4A148C/FFF?text=Responsive+Portfolio+Web+App',
   },
 ]
@@ -379,8 +379,17 @@ function About(){
 
 /* ── JOURNEY (Experience + Education) ── */
 function Journey(){
-  const showEducation = useState('work')[0]   /* initial tab */
   const [activeTab, setActiveTab] = useState('work')
+
+  /** After every tab switch, force .revealed on items inside the now-visible active panel.
+   *  The IntersectionObserver inside ScrollReveal sometimes fires too early
+   *  (before React applies display:block on the active panel), leaving items at opacity:0. */
+  useEffect(()=>{
+    const panel=document.querySelector('.tab-panel.active .reveal-up:not(.revealed)')
+    if(!panel) return
+    const items=document.querySelectorAll('.tab-panel.active .reveal-up:not(.revealed)')
+    items.forEach(i=>i.classList.add('revealed'))
+  },[activeTab])
 
   const TimelineItem=({data})=>(
     <div className="timeline-item reveal-up" key={data.title}>
@@ -516,7 +525,7 @@ function Contact(){
   }
   const cards=[
     {icon:'fas fa-envelope',     label:'Email',     text:'mailtopratikverma@gmail.com',               href:'mailto:mailtopratikverma@gmail.com'},
-    {icon:'fas fa-map-marker-alt',label:'Location', text:'Nagpur &amp; Mumbai, India',                href:'#'},
+    {icon:'fas fa-map-marker-alt',label:'Location', text:'Nagpur and Mumbai, India',                href:'#'},
     {icon:'fab fa-linkedin-in',  label:'LinkedIn',  text:'linkedin.com/in/pratikverma12',             href:'https://www.linkedin.com/in/pratikverma12'},
     {icon:'fab fa-github',       label:'GitHub',    text:'github.com/pratikverma12',                  href:'https://github.com/pratikverma12'},
     {icon:'fas fa-trophy',       label:'HackerRank',text:'hackerrank.com/pratikverma12',              href:'https://www.hackerrank.com/profile/pratikverma12'},
@@ -604,8 +613,8 @@ function Footer(){
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; <span id="footerYear"></span> Pratik Arvind Verma.
-            <i className="fas fa-copyright"/> Made with <i className="fas fa-heart"/> by Pratik Arvind Verma.</p>
+          <p>COPYRIGHT &copy; <span id="footerYear"></span> : Pratik Arvind Verma.
+            <br/>Made with <i className="fas fa-heart"/> by Pratik Arvind Verma.</p>
         </div>
       </div>
     </footer>
