@@ -22,7 +22,7 @@ const PROJECTS = [
     title: 'Call & Chat Application',
     desc: 'End-to-end encrypted messaging platform with group call, chat, file sharing and screen sharing using WebRTC. Built with Flutter and Node.js.',
     tech: ['Flutter', 'Node.js', 'WebRTC'],
-    link: '#',
+    link: 'https://github.com/pratikverma12/ConferenceApp',
     img: 'https://placehold.co/600x380/1A3A5C/FFF?text=Call+%26+Chat+App',
   },
   {
@@ -42,6 +42,15 @@ const PROJECTS = [
     tech: ['React', 'TypeScript', 'Vite'],
     link: 'https://github.com/pratikverma12/Portfolio',
     img: 'https://placehold.co/600x380/4A148C/FFF?text=Responsive+Portfolio+Web+App',
+  },
+    {
+    id: 'ai-parking-detector',
+    category: 'AI & Web',
+    title: 'AI based Parking Space Detection System',
+    desc: 'AI based system to detect parking spaces Live with precise location marked on Map',
+    tech: ['Python', 'AI', 'React', 'Vite'],
+    link: 'https://github.com/pratikverma12/AIParking',
+    img: 'https://placehold.co/600x380/112236/FFF?text=AI+based+Parking+Space+Detection+System',
   },
 ]
 
